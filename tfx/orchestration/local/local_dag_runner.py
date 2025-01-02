@@ -95,6 +95,8 @@ class LocalDagRunner(tfx_runner.IrBasedRunner):
         custom_driver_spec = runner_utils.extract_custom_driver_spec(
             deployment_config, node_id)
 
+        start_time = datetime.datetime.now()
+        print(f'Component {node_id} is running, started at {start_time.isoformat()}.')
         component_launcher = launcher.Launcher(
             pipeline_node=pipeline_node,
             mlmd_connection=metadata.Metadata(connection_config),
@@ -107,4 +109,6 @@ class LocalDagRunner(tfx_runner.IrBasedRunner):
           with metadata.Metadata(connection_config) as mlmd_handle:
             partial_run_utils.snapshot(mlmd_handle, pipeline)
         component_launcher.launch()
+        end_time = datetime.datetime.now()
+        print(f'Component {node_id} is done, finished at {end_time.isoformat()}, ran for {end_time - start_time}.')
         logging.info('Component %s is finished.', node_id)
