@@ -553,3 +553,21 @@ class DistributionValidatorSpec(ComponentSpec):
       ANOMALIES_KEY: ChannelParameter(type=standard_artifacts.ExampleAnomalies),
   }
   TYPE_ANNOTATION = Process
+
+
+class FilterSpec(ComponentSpec):
+  """Filter component spec."""
+  PARAMETERS = {
+      EXCLUDE_SPLITS_KEY: ExecutionParameter(type=str, optional=True),
+  }
+  INPUTS = {
+      EXAMPLES_KEY:
+          ChannelParameter(type=standard_artifacts.Examples),
+      SCHEMA_KEY:
+          ChannelParameter(type=standard_artifacts.Schema),
+      STATISTICS_KEY:
+          ChannelParameter(type=standard_artifacts.ExampleStatistics),
+  }
+  OUTPUTS = {
+      OUTPUT_EXAMPLES_KEY: ChannelParameter(type=standard_artifacts.Examples),
+  }

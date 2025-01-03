@@ -29,3 +29,4 @@ from tfx.components.statistics_gen.component import StatisticsGen
 from tfx.components.trainer.component import Trainer
 from tfx.components.transform.component import Transform
 from tfx.components.tuner.component import Tuner
+from tfx.components.filter_gen.component import Filter

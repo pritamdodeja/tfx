@@ -143,7 +143,6 @@ def get_artifact_type_class(
   # definitions is imported. Modules containing custom artifact subclasses that
   # need to be deserialized should be imported by the entrypoint of the
   # application or container.
-  from tfx.types import standard_artifacts  # pylint: disable=g-import-not-at-top,import-outside-toplevel,unused-import,unused-variable
 
   # Enumerate the Artifact type ontology, separated into auto-generated and
   # natively-defined classes.
